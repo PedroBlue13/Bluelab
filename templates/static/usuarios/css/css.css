@@ -1,7 +1,11 @@
 body{
     background-image: url('/static/geral/img/bg1.png');
     background-size: cover;
-    }
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+}
     p{
     color: var(--light-color);
     }

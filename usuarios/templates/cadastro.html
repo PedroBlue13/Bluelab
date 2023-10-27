@@ -11,55 +11,78 @@
 {% block 'conteudo' %}
 <br>
 <br>
-<div class="container">
-    {% if messages %}
-          {% for message in messages %}
-             <div class="alert {{message.tags}}">{{message}}</div>
-          {%endfor%}
-    
-    {% endif %}
-<h3 class="font-destaque">Cadastre-se</h3>
-<div class="row">
-<div class="col-md-3" style="text-align: center">
-<img src="{% static 'geral/img/logo.png' %}" alt="">
-<h3>BlueLabs</h3>
+<section style="margin-top: 90px; margin-left: 300px;">
+    <div class="fundo-cadastro">
+
+        <div class="container ">
+            
+            
+            
+            {% comment %} <h3 class="font-destaque  " style="margin-left: 100px;" >BlueLabs</h3> {% endcomment %}
+            <div class="row"> 
+                <div class="col-md-3" style="text-align: center">
+                    <img src="{% static 'geral/img/logo.png' %}"  style="margin-right: 40px; margin-left: 330px; width: 190px; height: auto;" alt="">
+                    <!-- <h3 style="margin-bottom: 30px;margin-left: 75px; font-size: 15px;">Cadastre-se para ter acesso aos serviços BlueLabs.</h3> -->
+                </div>
+                <p style="color: white;" class="font-g" >Cadastre-se e cuide da sua saúde.</p>
+                <div class="">
+                    <form action="  {% url 'cadastro' %}  " method="POST"> {% csrf_token %}
+                        <hr width="100%" size="2" color="blue" /> 
+                        <!-- <label style="margin-left: 95px;">Primeiro nome</label> -->
+                        <p style="color: white;" >Esses dados são para nos conhecermos!</p>
+                        <input type="text" class="input-default" name="primeiro_nome" placeholder="Primeiro nome"  >
+                        <br>
+                        <!-- <label style="margin-left: 95px;" >Último nome</label> -->
+                        <br>
+                        <input type="text" class="input-default"  placeholder="Ultimo nome" name="ultimo_nome"  >
+                    </div>
+                </div>
+                <hr width="100%" size="2" color="blue" />
+                <section>
+
+                    <div class="message">
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert {{message.tags}}"  style="width: 830px" >{{message}}</div>
+                        {%endfor%}
+                        
+                        {% endif %}
+                    </div>
+                </section>
+                <section class="input_dados">
+                    <div class="col-md-">
+                        <!-- <label>Nome de usuário</label> -->
+                        <p style="color: white;" >Aqui você cria seu usuário. Você precisará destes dados mais tarde, então guarde-os com cuidado!</p>
+                        <input type="text" class="input-default w100" placeholder="Nome de usuário" name="username">
+                        
+                        <!-- <label>Senha</label> -->
+                        
+                    </div>
+                    <div class="col-md-">
+                        <!-- <label>E-mail</label> -->
+                        
+                        <input type="text" class="input-default w100" placeholder="E-mail" name="email">
+                        
+                        <input type="password" class="input-default w100"  placeholder="Senha" name="senha">
+                        <!-- <label>Confirmar senha</label> -->
+                        
+                        <input type="password" class="input-default w100"  placeholder="Confirmar senha" name="confirmar_senha">
+                    </div>
+                </section >
+    </div>
+        <br>
+        <input type="submit" class="btn-default play" value="Cadastrar">
+       <br>
+       <hr width="100%" size="2" color="blue" /> 
+        <div class="redirect-pages">
+
+          <input class="hidden" type="radio" id="plogin"></input>
+          <label for="plogin" class="cursor-pointer">Já faz parte da família BlueLabs? Faça o </label>
+          <a href="http://127.0.0.1:8000/usuarios/login/" class="cursor-pointer login"> login!</a>
+        </div>
+
+       <br>
+    </form>
 </div>
-<div class="col-md-9">
-<form action="  {% url 'cadastro' %}  " method="POST"> {% csrf_token %}
-<label>Primeiro nome</label>
-<br>
-<input type="text" class="input-default" name="primeiro_nome">
-<br>
-<br>
-<label>Último nome</label>
-<br>
-<input type="text" class="input-default" name="ultimo_nome">
-</div>
-</div>
-<div class="row">
-<div class="col-md-4">
-<label>Nome de usuário</label>
-<br>
-<input type="text" class="input-default w100" name="username">
-<br>
-<br>
-<label>Senha</label>
-<br>
-<input type="password" class="input-default w100" name="senha">
-</div>
-<div class="col-md-4">
-<label>E-mail</label>
-<br>
-<input type="text" class="input-default w100" name="email">
-<br>
-<br>
-<label>Confirmar senha</label>
-<br>
-<input type="password" class="input-default w100" name="confirmar_senha">
-</div>
-</div>
-<br>
-<input type="submit" class="btn-default" value="Cadastrar">
-</form>
-</div>
+</section>   
 {% endblock %}

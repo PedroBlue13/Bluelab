@@ -3,8 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.messages import constants
 from django.contrib import messages
-
-
+from django.contrib.auth import authenticate, login
 
 
 def cadastro(request):
@@ -72,10 +71,10 @@ def cadastro(request):
         messages.add_message(request, constants.SUCCESS,'Perfil criado com sucesso, bem-vindo!')
         return redirect('/usuarios/cadastro')
     except: 
-          messages.add_message(request, constants.light,'Ops, algo aconteceu, tente novamente em segundos!')
+          messages.add_message(request, constants.ERROR,'Ops, algo aconteceu, tente novamente em segundos!')
           return redirect('/usuarios/cadastro')
        
-def login(request):
+def logar(request):
       if request.method == "GET":
                 return render (request, "login.html")
       
@@ -83,8 +82,17 @@ def login(request):
             username = request.POST.get("username")
             senha = request.POST.get("senha")
    
-    
-            return HttpResponse(f"{username} - {senha}")
+            User = authenticate(username=username, password=senha)
+            
+            
+            if User:
+                  login(request, User)
+                  return redirect('/')
+                  
+            else:
+             messages.add_message(request, constants.WARNING,'Ops, algo aconteceu, não encontramos este usuário, verifique os dados!')
+            return redirect('/usuarios/login/')
+
 
 
 

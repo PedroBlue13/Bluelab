@@ -1,35 +1,130 @@
-:root{
-    --main-color: #151C34;
-    --dark-color: #0C121C ;
-    --light-color: #6DE6EE;
-    --contrast-color: #f4c96b;
-    --differential-color: #213d3dd8;
-    }
-    *{
-    color: white
-    }
-    .font-destaque{
-    color: var(--light-color);
-    font-size: 40px;
-    }
-    .input-default{
-    background-color: rgba(255,255,255,0.05);
-    border: 1px solid var(--differential-color);
-    padding: 7px;
-    width: 50%;
-    }
-    .w100{
-    width: 100%;
-    }
-    .btn-default{
-    background-color: var(--light-color);
-    color: black;
-    width: 15%;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    }
-    .font-destaque-secundaria{
-    color: var(--light-color);
-    font-size: 35px;
-    }
+:root {
+  --main-color: #151c34;
+  --dark-color: #0c121c;
+  --light-color: #2d7a80;
+  --contrast-color: #f4c96b;
+  --differential-color: #eaf7f752; /* Borda dos inputs */
+}
+* {
+  color: white;
+}
+.font-destaque {
+  color: var(--light-color);
+  font-weight: bold;
+  font-size: 40px;
+}
+.input-default {
+  background-color: rgba(255, 255, 255, 0.774); /* Bg dos inputs */
+  border: 1px solid var(--differential-color);
+  padding: 7px;
+  width: 45%;
+  border-radius: 10px;
+}
+.w100 {
+  width: 100%;
+}
+.btn-default {
+  background-color: var(--light-color);
+  color: rgb(255, 255, 255);
+  width: 66%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+}
+.btn-default:hover {
+  background-color: rgba(23, 92, 97, 0.918);
+  color: rgb(255, 255, 255);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(54, 252, 235, 0.849);
+}
+.font-destaque-secundaria {
+  color: var(--light-color);
+  font-size: 35px;
+}
+.input-default {
+  color: #1d1c1c; /* cor da letra dentro dos input */
+}
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+.btn-largo {
+  width: 45%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+}
+.text-alert {
+  width: 95%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+}
+.fundo-login {
+  background-color: #00000000; /* Cor de fundo da caixa */
+  border: 2px solid #e0e0e010; /* Borda da caixa */
+  padding: 20px; /* Espaçamento interno da caixa */
+  border-radius: 20px; /* Cantos arredondados */
+  width: 900px;
+  height: 900px;
+  display: flex;
+  flex-direction: column; /* Empilhar elementos verticalmente */
+  justify-content: center; /* Centralizar verticalmente */
+  margin: 0 auto;
+  text-align: center; /* Centralizar o texto horizontalmente */
+  height: auto; /* Defina a altura como 'auto' para ajustar à altura do conteúdo */
+  margin-right: 900px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.fundo-cadastro {
+  background-color: #00000000;
+  border: 2px solid #e0e0e010;
+  padding: 20px;
+  border-radius: 40px;
+  width: 900px;
+  height: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centralize verticalmente */
+  align-items: center; /* Centralize horizontalmente */
+  text-align: center;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  margin-right: 900px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.hidden {
+  display: none;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.mensagem-container {
+  margin: 0 auto; /* Isso centraliza a div horizontalmente */
+  margin-left: 140px;
+}
+.input-default {
+  margin-bottom: 10px;
+}
+.message {
+  margin-top: 10px;
+}
+.font-g {
+  font-family: Agbalumo, sans-serif;
+}
+.play {
+  font-family: Play, sans-serif;
+}
+.redirect-pages {
+  display: flex;
+  align-items: center;
+}
+.login {
+  margin-left: 4px;
+}
