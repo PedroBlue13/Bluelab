@@ -28,13 +28,26 @@
 
     <div class="col-md-2"></div>
     <div class="col-md card">
+      
+      {% for exame in solicitacao_exames %}
       <div style="font-size: 20px; font-weight: bold">
+      
+      
+        {%if exame.disponivel%}
         <img src="{% static 'exames/img/check.png' %}" />
-        Exame 1
-        <span class="previa-preco"> R$ 30 </span>
+        {%else%}
+
+        <img src="{% static 'exames/img/exit.png' %}" />
+        {%endif%}
+        
+        
+        {{exame.nome}}
+        <span class="previa-preco"> R$ {{exame.preco}}</span>
       </div>
+      {%endfor%}
+    
       <hr style="color: white" />
-      <div><label>Total: </label><label class="previa-preco">R$ 30</label></div>
+      <div><label>Total: </label><label class="previa-preco">R$ {{preco_total}}</label></div>
       <br />
       <h5>Data: 08 de Setembro</h5>
       <br />
