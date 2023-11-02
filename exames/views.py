@@ -11,10 +11,18 @@ from .models import TiposExames
 
 @login_required
 def solicitar_exames (request):
+    tipos_exames = TiposExames.objects.all()
     if request.method == "GET":
-       tipos_exames = TiposExames.objects.all()
        return render(request, "solicitar_exames.html", {"tipos_exames": tipos_exames})
     elif request.method == "POST":  
      exames_id = request.POST.getlist('exames')
-    print(exames_id)
-    return HttpResponse("teste")
+     solicitacao_exames = TiposExames.objects.filter(id__in=exames_id)
+    
+    
+   #: VERIFICAR PRECO SE ESTIVER DISPONIVEL 
+     preco_total = 0
+     for i in solicitacao_exames:
+       preco_total += i.preco
+    print(preco_total)
+    
+    return render(request, "solicitar_exames.html", {"tipos_exames": tipos_exames, "solicitacao_exames": solicitacao_exames, "preco_total": preco_total})
